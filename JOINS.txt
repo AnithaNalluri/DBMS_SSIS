@@ -1,0 +1,107 @@
+-----JOINTS RECAP--
+CREATE TABLE CUSTOMER1(
+cust_id int, 
+cust_name varchar(100), 
+cust_mob varchar(15), 
+cust_country varchar(50)
+);
+
+CREATE TABLE order2(
+ORD_ID INT,
+CUS_ID INT,
+ORD_DATE DATE
+);
+
+INSERT INTO CUSTOMER1 VALUES(1,'ANI','12345678','INDIA'),(2,'BHOOMI','12345678','US'),
+(3,'POOJI','12345678','UK'),(4,'LIKI','12345678','LONDON');
+
+INSERT INTO ORDER2 VALUES(100,1,'2022-07-18'),(101,1,'2022-07-18'),(102,2,'2022-07-18'),
+(103,2,'2022-07-18'),(104,3,'2022-07-18'),(105,3,'2022-07-18'),(106,4,'2022-07-18'),(107,4,'2022-07-18');
+INSERT INTO ORDER2 VALUES(108,5,'2022-07-18'),(109,5,'2022-07-18');
+
+SELECT * FROM CUSTOMER1;
+SELECT * FROM ORDER2;
+
+----INNER JOIN---
+SELECT C.CUST_ID,C.CUST_NAME,C.CUST_MOB,C.CUST_COUNTRY,O.ORD_DATE,O.ORD_ID
+FROM CUSTOMER1 AS C
+INNER JOIN ORDER2 AS O
+ON C.CUST_ID=O.CUS_ID;
+
+---LEFT JOIN---
+SELECT C.CUST_ID,C.CUST_NAME,C.CUST_MOB,C.CUST_COUNTRY,O.ORD_DATE,O.ORD_ID
+FROM CUSTOMER1 AS C
+LEFT JOIN ORDER2 AS O
+ON C.CUST_ID=O.CUS_ID;
+
+---LEFT JOIN VICE VERSA--
+SELECT C.CUST_ID,C.CUST_NAME,C.CUST_MOB,C.CUST_COUNTRY,O.ORD_DATE,O.ORD_ID
+FROM ORDER2 AS O
+LEFT JOIN CUSTOMER1 AS C
+ON C.CUST_ID=O.CUS_ID;
+
+-----RIGHT JOIN----
+SELECT C.CUST_ID,C.CUST_NAME,C.CUST_MOB,C.CUST_COUNTRY,O.ORD_DATE,O.ORD_ID
+FROM CUSTOMER1 AS C
+RIGHT JOIN ORDER2 AS O
+ON C.CUST_ID=O.CUS_ID;
+
+----FULL JOIN----
+SELECT C.CUST_ID,C.CUST_NAME,C.CUST_MOB,C.CUST_COUNTRY,O.ORD_DATE,O.ORD_ID
+FROM CUSTOMER1 AS C
+RIGHT JOIN ORDER2 AS O
+ON C.CUST_ID=O.CUS_ID;
+
+----CROSS JOIN---
+SELECT C.CUST_ID,C.CUST_NAME,C.CUST_MOB,C.CUST_COUNTRY,O.ORD_DATE,O.ORD_ID
+FROM CUSTOMER1 AS C,
+ORDER2 AS O
+
+-----JOINS ASSIGNMENT---
+CREATE TABLE EMP3
+(
+empid int,
+empname varchar(100),
+zipcode int
+);
+select * from emp3;
+
+create table address
+(
+zipcode int,
+city varchar(20),
+country varchar(20)
+);
+select * from address;
+insert into emp3 values(1,'ani',583102),(2,'pooji',583103),(3,'ani',583104),(4,'ani',583105);
+insert into address values(583102,'bly','india'),(583103,'bng','india'),(583104,'ny','america');
+
+---INNER JOIN---
+SELECT e.empid,e.empname,e.zipcode,a.city,a.country,a.zipcode
+from emp3 as e
+inner join address a 
+on e.zipcode=a.zipcode;
+
+---LEFT JOIN---
+SELECT e.empid,e.empname,e.zipcode,a.city,a.country,a.zipcode
+from emp3 as e
+Left join address a 
+on e.zipcode=a.zipcode;
+
+------right join-----
+SELECT e.empid,e.empname,e.zipcode,a.city,a.country,a.zipcode
+from emp3 as e
+right join address a 
+on e.zipcode=a.zipcode;
+
+-----FULL JOIN----
+SELECT e.empid,e.empname,e.zipcode,a.city,a.country,a.zipcode
+from emp3 as e
+FULL join address a 
+on e.zipcode=a.zipcode;
+
+---CROSS JOIN---
+SELECT e.empid,e.empname,e.zipcode,a.city,a.country,a.zipcode
+from emp3 as e
+CROSS join address a 
+
