@@ -1,0 +1,32 @@
+
+----CONTAINER-----
+
+CREATE TABLE AIC_EMP
+(
+id 	INT,
+name VARCHAR(255),	
+sal INT,
+des varchar(255)
+);
+SELECT * FROM AIC_EMP;
+
+----SEQUENCE CONTAINER---
+CREATE TABLE ASC_EMP
+(
+id 	INT,
+name VARCHAR(255),	
+sal INT,
+des varchar(255)
+);
+INSERT INTO ASC_EMP VALUES(1,'ANI',1000,'HR'),(2,'POOJI',1000,'HR');
+SELECT * FROM ASC_EMP;
+
+CREATE TABLE ASC_EMP_tgt
+(
+id 	INT,
+name VARCHAR(255),	
+sal INT,
+des varchar(255)
+);
+SELECT * FROM ASC_EMP_tgt;
+DROP TABLE ASC_EMP_tgt;
