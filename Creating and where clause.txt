@@ -1,0 +1,74 @@
+create table dlithe.dbo.Ar_depar
+(
+D_id int Primary key,
+D_name varchar(25) 
+);
+ insert into dlithe.dbo.Ar_depar values(1,'ECE');
+ insert into dlithe.dbo.Ar_depar values(2,'CSE');
+ insert into dlithe.dbo.Ar_depar values(3,'EEE');
+ select * from dlithe.dbo.Ar_depar
+ 
+ create table dlithe.dbo.Ar_emp
+ (
+ E_id int Primary key,
+ E_name varchar(25),
+  Foreign key (E_id) references Ar_depar(D_id)
+ );
+ insert into dlithe.dbo.Ar_emp values(1,'Anitha');
+insert into dlithe.dbo.Ar_emp values(2,'poojitha');
+ insert into dlithe.dbo.Ar_emp values(3,'likitha');
+ insert into dlithe.dbo.Ar_emp values(4,'Ruchitha');
+insert into dlithe.dbo.Ar_emp values(5,'Nikitha');
+
+ select * from dlithe.dbo.Ar_emp
+ 
+ create table dlithe.dbo.Ar_loc
+ (
+ L_id int Unique,
+ L_name Varchar(25) Not Null default 'Not Yet Decided'
+ );
+insert into dlithe.dbo.Ar_loc values(1,'Banglore');
+insert into dlithe.dbo.Ar_loc values(2,'Chennai');
+insert into dlithe.dbo.Ar_loc values(3,'Hyderabad');
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE EMP_ID=100;
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE SALARY>=2200;
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE EMP_ID<=100;
+SELECT * FROM dlithe.dbo.S_HREMPLOYEES 
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE EMP_ID<>100;
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE FIRST_NAME LIKE'S%' AND LAST_NAME LIKE'M%';
+
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE FIRST_NAME LIKE'S%' OR LAST_NAME LIKE'M%';
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE FIRST_NAME NOT LIKE'S%' AND LAST_NAME NOT LIKE'M%';
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE FIRST_NAME NOT LIKE'S%' OR LAST_NAME NOT LIKE'M%';
+
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE SALARY BETWEEN 2000 AND 10000;
+
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE EMP_ID IS NULL;
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE MANAGER_ID IS NOT NULL;
+SELECT * FROM dlithe.dbo.S_HREMPLOYEES 
+
+select * from dlithe.dbo.S_HREMPLOYEES
+WHERE EMP_ID IN (100,101,115,102);
+
