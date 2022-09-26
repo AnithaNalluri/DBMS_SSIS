@@ -1,0 +1,47 @@
+----CONSTRAINTS ASSIGNMENT---
+CREATE TABLE EMP4
+(
+empid int PRIMARY KEY,
+empname varchar(100) NOT NULL,
+empdes varchar(100) default 'NOT YET DECIDED',
+empage int check (empage>=22)
+);
+select * from emp4;
+insert into emp4 values (3,'ani','intern',22),
+(2,'pooji','trainee',24);
+
+----checking for check constraint---
+insert into emp4 values (4,'ani','intern',20);
+
+----checking for default constraint---
+insert into emp4 values (5,'ani',' ',22);
+
+---checking for not null---
+insert into emp4 (empid,empname,empdes,empage)values (6,'hr',22);
+
+----FOREIGN KEY----
+
+
+CREATE TABLE EMP5
+(
+empid int PRIMARY KEY,
+empname varchar(100) NOT NULL,
+empdes varchar(100) default 'NOT YET DECIDED',
+empage int check (empage>=22),
+dept_id int
+);
+select * from emp5;
+insert into emp5 values (1,'ani','intern',22,101),(3,'vaish','hr',24,103),
+(2,'pooji','trainee',24,102);
+drop table emp5;
+
+create table DEPARTMENT1 (
+dept_id int primary key,
+dept_name varchar(10)
+);
+select * from DEPARTMENT1;
+insert into DEPARTMENT1 (dept_id,dept_name) values(101,'grp1'),(102,'grp2'),(103,'grp3');
+drop table department1;
+
+alter table emp5 add constraint ffk_dept_id
+FOREIGN KEY(dept_id) REFERENCES DEPARTMENT1(dept_id);
