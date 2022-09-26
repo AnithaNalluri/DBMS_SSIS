@@ -1,0 +1,27 @@
+-----Slowly Changing Dimension----
+CREATE TABLE A_EMP7
+(
+ID INT,
+NAME VARCHAR(15),
+SAL INT,
+st_date date,
+end_date date
+);
+ SELECT * FROM A_EMP7;
+INSERT INTO A_EMP7 VALUES (1,'ANI',1000,null,null),(2,'POOJI',2000,null,null),
+(3,'LIKKI',3000,null,null);
+drop table a_emp7;
+
+------TARGET TABLE------
+
+CREATE TABLE A_EMP7_tgt(
+id int,
+name varchar(15),
+sal int,
+st_date date,
+end_date date
+);
+SELECT * FROM A_EMP7_tgt;
+drop table a_emp7_tgt;
+
+update A_EMP7 SET NAME='DIVYA' WHERE ID=3;
