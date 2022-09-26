@@ -1,0 +1,31 @@
+-----RANK,DENSERANK,ROWNUMBER------
+create table es (
+E_ID INT,
+E_NAME VARCHAr(50),
+E_SAL INT,
+STU_NAME VARCHAR(100),
+STU_ID INT,
+STU_AGE INT
+);
+select * from es;
+drop table es;
+
+insert into es values(1,'ani',10000,'pooji',100,20),(1,'ani',10000,'pooji',100,20),
+(1,'ani',10000,'pooji',100,20),(2,'bhoomi',20000,'vaish',100,22),(2,'bhoomi',20000,'vaish',100,22),
+(3,'likki',30000,'divya',100,20);
+
+
+-----ROWNUMBER-----
+SELECT 
+ROW_NUMBER() OVER (ORDER BY E_ID) AS ROWNUMBER,E_ID,E_NAME,E_SAL,STU_NAME,STU_ID,STU_AGE
+FROM ES;
+
+----DENSE_RANK------
+SELECT 
+DENSE_RANK() OVER (ORDER BY E_ID) AS D_RANK,E_ID,E_NAME,E_SAL,STU_NAME,STU_ID,STU_AGE
+FROM ES;
+
+-----RANK----
+SELECT 
+RANK() OVER (ORDER BY E_ID) AS E_RANK,E_ID,E_NAME,E_SAL,STU_NAME,STU_ID,STU_AGE
+FROM ES;
